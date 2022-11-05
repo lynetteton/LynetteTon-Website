@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Bruno always strive to give you the best deal and products of electronics for the lowest price as possible.">
+    <meta name="author" content="862220345">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <!-- Title of your Website -->
+    <title>Bruno's Electronics Bargain Bin</title>
+    <link href="product.css" rel="stylesheet">
+  </head>
+  <body>
+     <nav class="site-header sticky-top py-1">
+    <!-- Top Menu Bar -->
+    <div class="container d-flex flex-column flex-md-row justify-content-between">
+        <a class="py-2 d-none d-md-inline-block" id="menu-item-1" href="https://www.newegg.com/"target="_blank">Newegg</a>
+        <a class="py-2 d-none d-md-inline-block" id="menu-item-2" href="https://www.target.com/"target="_blank">Target</a>
+        <a class="py-2 d-none d-md-inline-block" id="menu-item-3" href="https://www.walmart.com/"target="_blank">Walmart</a>
+        <a class="py-2 d-none d-md-inline-block" id="menu-item-4" href="https://www.bestbuy.com/"target="_blank">Best Buy</a>
+        <a class="py-2 d-none d-md-inline-block" id="menu-item-5" href="https://www.amazon.com/"target="_blank">Amazon</a>
+        <a class="py-2 d-none d-md-inline-block" id="menu-item-6" href="https://www.ebay.com/"target="_blank">Ebay</a>
+        <a class="py-2 d-none d-md-inline-block" id="menu-item-7" href="https://www.kohls.com/"target="_blank">Kohls</a>
+    </div>
+</nav>
+<!-- Main Header Section h1-->
+<div class="position-relative overflow-hidden p-3 p-md-5 m-md-0 text-center bg-light">
+    <div class="col-md-8 p-lg-5 mx-auto my-5">
+        <h1 class="display-4 font-weight-normal">Preorder your exclusive Tokidoki PC Computer today!</h1>
+        <p class="lead font-weight-normal">This is the new and limited edition of Tokidoki that is created by an Italian artist named Simone Legno. His creative cartoon characters are on electronic products and accessories. These lovely characters created are meant to bring a little joy, sparkle, and magic into your life!</p>
+        <a class="btn btn-outline-secondary" href="https://www.tokidoki.it/>Coming soon</a>
+    </div>
+</div>
+<!-- Left Tile -->
+<div class="d-md-flex flex-md-equal w-100">
+    <div class="bg-dark pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden">
+        <div class="my-3 py-3">
+            <h2 class="display-5">Sign up</h2>
+            <p class="lead">Sign up now to get instant access to our educational content</p>
+        </div>
+        <!-- Web form when submitted will send a text message -->
+        <form class="p-2" onsubmit="sendTextMessage(); return false;">
+            <!-- Full Name Form Field -->
+            <div class="form-group">
+                <label for="example-first-name">Full Name</label>
+                <input type="text" value="Full Name" class="form-control" id="example-first-name" aria-describedby="emailHelp">
+            </div>
+            <!-- Phone Number Form Field -->
+            <div class="form-group">
+                <label for="example-tel-input">Phone number</label>
+                <input type="tel" class="form-control" value="1408555555" id="example-tel-input">
+            </div>
+            <!-- JavaScript that handles onSubmit logic -->
+            <!-- Configure the XHR request below with your own credentials -->
+            <script>
+            function sendTextMessage() {
+                console.log("Hello world!");
+                var xhr = new XMLHttpRequest();
+                var accountSID = "AC570d6ab78d3265e8336ff64a24993c64";
+                var authToken = "7d5005750620af972f5afcd93ee8d479";
+                var base64encoded = accountSID + ":" + authToken;
+                var params = "To=" + document.getElementById('example-tel-input').value + "&From=" + "14632637855" + "&Body=" + "Hello " + document.getElementById('example-first-name').value + " nice job on sending your first SMS with APIs.";
+                xhr.open("POST", "https://api.twilio.com/2010-04-01/Accounts/" + accountSID + "/Messages.json", true);
+                xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                xhr.setRequestHeader('Authorization', 'Basic ' + btoa(base64encoded));
+                xhr.send(params);
+            }
+            </script>
+            <!-- Submit button that will execute the sendTextMessage function -->
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+  </body>
+</html>
